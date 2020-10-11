@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WEB_API_DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="USER_LOGIN_DATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWD" Type="varchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USER_REGISTRATION_DATA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="USER_EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWD" Type="varchar(max)" />
+          <Property Name="CONTACT_NUMBER" Type="bigint" />
+          <Property Name="USER_ADDR" Type="varchar(max)" />
+          <Property Name="ISACTIVE" Type="bit" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="WEB_API_DATAModelStoreContainer">
+          <EntitySet Name="USER_LOGIN_DATE" EntityType="Self.USER_LOGIN_DATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_REGISTRATION_DATA" EntityType="Self.USER_REGISTRATION_DATA" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WEB_API_DATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WEB_API_DATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="USER_LOGIN_DATE" EntityType="WEB_API_DATAModel.USER_LOGIN_DATE" />
+          <EntitySet Name="USER_REGISTRATION_DATA" EntityType="WEB_API_DATAModel.USER_REGISTRATION_DATA" />
+        </EntityContainer>
+        <EntityType Name="USER_LOGIN_DATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="USER_REGISTRATION_DATA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_NUMBER" Type="Int64" />
+          <Property Name="USER_ADDR" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WEB_API_DATAModelStoreContainer" CdmEntityContainer="WEB_API_DATAEntities">
+          <EntitySetMapping Name="USER_LOGIN_DATE">
+            <EntityTypeMapping TypeName="WEB_API_DATAModel.USER_LOGIN_DATE">
+              <MappingFragment StoreEntitySet="USER_LOGIN_DATE">
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_REGISTRATION_DATA">
+            <EntityTypeMapping TypeName="WEB_API_DATAModel.USER_REGISTRATION_DATA">
+              <MappingFragment StoreEntitySet="USER_REGISTRATION_DATA">
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="USER_ADDR" ColumnName="USER_ADDR" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
